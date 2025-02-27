@@ -1,10 +1,11 @@
 import Product from '../Product'
 import { Container, List } from './style'
+import ResidentEvil from '../../assets/images/resident.png'
 import Game from '../../models/Game'
 
 export type Props = {
   title: string
-  background: 'salmao'
+  background: 'gray' | 'black'
   games: Game[]
 }
 

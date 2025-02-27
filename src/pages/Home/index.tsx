@@ -2,76 +2,102 @@ import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
 import Game from '../../models/Game'
 
-import sushi from '../../assets/images/sushi.png'
-import macarrao from '../../assets/images/macarrao.png'
+import Resident from '../../assets/images/resident.png'
+import diablo from '../../assets/images/diablo.png'
+import zelda from '../../assets/images/zelda.png'
+import starwars from '../../assets/images/star_wars.png'
 
 const promocoes: Game[] = [
   {
     id: 1,
-    category: '4.9',
+    category: 'Ação',
     description:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis.',
-    image: sushi,
-    infos: ['Destaque', 'japonesa'],
+      'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
+    image: Resident,
+    infos: ['10%', 'R$ 250,00'],
     system: 'Windows',
-    title: 'Hioki Sushi '
+    title: 'Residente Evil 4'
   },
   {
     id: 2,
-    category: '4.9',
+    category: 'Ação',
     description:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis.',
-    image: macarrao,
-    infos: ['5%', 'italiana'],
-    system: 'Windows',
-    title: 'La Dolce Vita Trattoria'
+      'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
+    image: Resident,
+    infos: ['5%', 'R$ 290,00'],
+    system: 'PS5',
+    title: 'Residente Evil 4'
   },
   {
     id: 3,
-    category: '4.9',
+    category: 'Ação',
     description:
       'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
-    image: sushi,
-    infos: ['10%', 'japonesa'],
+    image: Resident,
+    infos: ['10%', 'R$ 250,00'],
     system: 'Windows',
     title: 'Residente Evil 4'
   },
   {
     id: 4,
-    category: '4.9',
+    category: 'Ação',
     description:
       'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
-    image: macarrao,
-    infos: ['10%', 'japonesa'],
+    image: Resident,
+    infos: ['10%', 'R$ 250,00'],
     system: 'Windows',
     title: 'Residente Evil 4'
+  }
+]
+
+const emBreve: Game[] = [
+  {
+    id: 5,
+    category: 'RPG',
+    description:
+      'Diablo IV é  um RPG de ação em desenvolvimento pela Blizard Entertainment...',
+    title: 'Diablo IV',
+    system: 'Windows',
+    infos: ['17/05'],
+    image: diablo
   },
   {
-    id: 2,
-    category: '4.9',
+    id: 6,
+    category: 'RPG',
     description:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis.',
-    image: sushi,
-    infos: ['5%', 'italiana'],
+      'Diablo IV é  um RPG de ação em desenvolvimento pela Blizard Entertainment...',
+    title: 'Zelda',
     system: 'Windows',
-    title: 'La Dolce Vita Trattoria'
+    infos: ['17/05'],
+    image: zelda
   },
   {
-    id: 2,
-    category: '4.9',
+    id: 7,
+    category: 'RPG',
     description:
-      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis.',
-    image: macarrao,
-    infos: ['5%', 'italiana'],
+      'Diablo IV é  um RPG de ação em desenvolvimento pela Blizard Entertainment...',
+    title: 'Star Wars',
     system: 'Windows',
-    title: 'La Dolce Vita Trattoria'
+    infos: ['17/05'],
+    image: starwars
+  },
+  {
+    id: 8,
+    category: 'RPG',
+    description:
+      'Diablo IV é  um RPG de ação em desenvolvimento pela Blizard Entertainment...',
+    title: 'Residente Evil 5',
+    system: 'Windows',
+    infos: ['17/05'],
+    image: Resident
   }
 ]
 
 const Home = () => (
   <>
     <Banner />
-    <ProductsList games={promocoes} title="Promoções" background="salmao" />
+    <ProductsList games={promocoes} title="Promoções" background="gray" />
+    <ProductsList games={emBreve} title="Em breve" background="black" />
   </>
 )
 
