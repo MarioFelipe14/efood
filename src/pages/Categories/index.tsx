@@ -11,21 +11,21 @@ const promocoes: Game[] = [
     id: 1,
     category: 'Ação',
     description:
-      'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     image: Resident,
     infos: ['10%', 'R$ 250,00'],
     system: 'Windows',
-    title: 'Residente Evil 4'
+    title: 'Hioki Sushi '
   },
   {
     id: 2,
     category: 'Ação',
     description:
-      'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
+      'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     image: Resident,
     infos: ['5%', 'R$ 290,00'],
     system: 'PS5',
-    title: 'Residente Evil 4'
+    title: 'La Dolce Vita Trattoria'
   },
   {
     id: 3,
@@ -94,10 +94,10 @@ const emBreve: Game[] = [
 
 const Categories = () => (
   <>
-    <ProductsList games={promocoes} title="RPG" background="gray" />
-    <ProductsList games={emBreve} title="Ação" background="black" />
-    <ProductsList games={promocoes} title="Aventura" background="gray" />
-    <ProductsList games={emBreve} title="FPS" background="black" />
+    <ProductsList games={promocoes} title="RPG" background="salmao" />
+    <ProductsList games={emBreve} title="Ação" background="salmao" />
+    <ProductsList games={promocoes} title="Aventura" background="salmao" />
+    <ProductsList games={emBreve} title="FPS" background="salmao" />
   </>
 )
 
