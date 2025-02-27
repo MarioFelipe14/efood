@@ -1,4 +1,9 @@
-import { Container, SectionTitle, FooterSection, Link, Links } from './styles'
+import { Container, SectionTitle, FooterSection } from './styles'
+
+import logo from '../../assets/images/logo-efood.png'
+import instagram from '../../assets/images/instagram-round-svgrepo-com (1) 1.png'
+import facebook from '../../assets/images/facebook-round-svgrepo-com 1.png'
+import twitter from '../../assets/images/Group.png'
 
 const currentYear = new Date().getFullYear()
 
@@ -6,45 +11,24 @@ const Footer = () => (
   <Container>
     <div className="container">
       <FooterSection>
-        <SectionTitle>Categorias</SectionTitle>
-        <Links>
-          <li>
-            <Link>RPG</Link>
-          </li>
-          <li>
-            <Link>Estratégia</Link>
-          </li>
-          <li>
-            <Link>Ação</Link>
-          </li>
-          <li>
-            <Link>Aventura</Link>
-          </li>
-          <li>
-            <Link>Esportes</Link>
-          </li>
-          <li>
-            <Link>Simulação</Link>
-          </li>
-          <li>
-            <Link>FPS</Link>
-          </li>
-        </Links>
+        <SectionTitle>
+          <img src={logo} alt="logo efood" />
+        </SectionTitle>
+        <a href="#">
+          <img src={instagram} alt="instagram" />
+        </a>
+        <a href="#">
+          <img src={facebook} alt="facebook" />
+        </a>
+        <a href="#">
+          <img src={twitter} alt="twitter" />
+        </a>
       </FooterSection>
-      <FooterSection>
-        <SectionTitle>Acesso rápido</SectionTitle>
-        <Links>
-          <li>
-            <Link>Novidades</Link>
-          </li>
-          <li>
-            <Link>Promoções</Link>
-          </li>
-          <li>
-            <Link>Em breve</Link>
-          </li>
-        </Links>
-      </FooterSection>
+      <p>
+        A efood é uma plataforma para divulgação de estabelecimentos, a
+        responsabilidade pela entrega, qualidade dos produtos é toda do
+        estabelecimento contratado.{' '}
+      </p>
       <p>{currentYear}- &copy; E-PLAY Todos os direitos reservados</p>
     </div>
   </Container>
