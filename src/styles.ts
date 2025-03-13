@@ -21,7 +21,8 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.preto};
+    padding-top: 0;
+
     color: ${cores.branco};
     padding-top: 40px;
   }

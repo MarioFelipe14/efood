@@ -8,7 +8,7 @@ export type Props = {
   games: Game[]
 }
 
-const ProductsList = ({ title, background, games }: Props) => (
+const categoriesList = ({ title, background, games }: Props) => (
   <Container background={background}>
     <div className="container">
       <h2>{title}</h2>
@@ -28,4 +28,4 @@ const ProductsList = ({ title, background, games }: Props) => (
   </Container>
 )
 
-export default ProductsList
+export default categoriesList

@@ -21,8 +21,11 @@ export const Imagem = styled.div`
 `
 
 export const Titulo = styled.h2`
+  width: 539px;
+  height: 84px;
+  top: 236px;
+  left: 414px;
   font-size: 36px;
   line-height: 42px;
-  max-width: 450px;
   color: ${cores.salmaoEscuro};
 `

@@ -6,7 +6,7 @@ import Categories from './pages/Categories'
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/categories" element={<Categories />} />
+    <Route path="/categories/:id" element={<Categories />} />
   </Routes>
 )
 

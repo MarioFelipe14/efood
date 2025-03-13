@@ -5,8 +5,6 @@ import instagram from '../../assets/images/instagram-round-svgrepo-com (1) 1.png
 import facebook from '../../assets/images/facebook-round-svgrepo-com 1.png'
 import twitter from '../../assets/images/Group.png'
 
-const currentYear = new Date().getFullYear()
-
 const Footer = () => (
   <Container>
     <div className="container">
@@ -29,7 +27,6 @@ const Footer = () => (
         responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.{' '}
       </p>
-      <p>{currentYear}- &copy; E-PLAY Todos os direitos reservados</p>
     </div>
   </Container>
 )

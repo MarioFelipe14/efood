@@ -1,23 +1,24 @@
 import Tag from '../Tag'
-import { Card, Descricao, Titulo, Infos } from './styles'
+import estrela from '../../assets/images/estrela1.svg'
+import {
+  Card,
+  Descricao,
+  Titulo,
+  Infos,
+  ContainerTitulo,
+  ContainerTag,
+  CardSemFundo
+} from './styles'
 
 type Props = {
   title: string
   category: string
-  system: string
   description: string
   infos: string[]
   image: string
 }
 
-const Product = ({
-  title,
-  category,
-  system,
-  description,
-  infos,
-  image
-}: Props) => (
+const Product = ({ title, category, description, infos, image }: Props) => (
   <Card>
     <Infos>
       {infos.map((info) => (
@@ -25,10 +26,15 @@ const Product = ({
       ))}
     </Infos>
     <img src={image} alt={title} />
-    <Titulo>{title}</Titulo>
-    <Tag>{category}</Tag>
-    <Tag>{system}</Tag>
+    <ContainerTitulo>
+      <Titulo>{title}</Titulo>
+      <ContainerTag>
+        <CardSemFundo>{category}</CardSemFundo>
+        <img src={estrela} />
+      </ContainerTag>
+    </ContainerTitulo>
     <Descricao>{description}</Descricao>
+    <button>Saiba mais</button>
   </Card>
 )
 

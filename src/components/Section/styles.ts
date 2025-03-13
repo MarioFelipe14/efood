@@ -62,9 +62,3 @@ export const Descricao = styled.p`
   margin-top: 16px;
   padding: 8px;
 `
-
-export const Infos = styled.div`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-`

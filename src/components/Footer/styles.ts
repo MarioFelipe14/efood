@@ -11,6 +11,7 @@ export const Container = styled.footer`
 
   p {
     color: ${cores.salmaoEscuro};
+    margin-bottom: 40px;
   }
 `
 
