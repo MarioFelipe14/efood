@@ -1,13 +1,14 @@
 import { useParams } from 'react-router-dom'
-import Banner from '../../components/Banner'
 import Hero from '../../components/Hero'
 
 import Gallery from '../../components/Gallery'
 import { useEffect, useState } from 'react'
+import BannerCategories from '../../components/Banner categories'
 
-export type Menu = {
+export type MenuCategories = {
   id: number
   titulo: string
+  destacado?: boolean
   tipo: string
   avaliacao: string
   descricao: string
@@ -24,17 +25,17 @@ export type Menu = {
 
 const Categories = () => {
   const { id } = useParams()
-  const [categories, setCategories] = useState<Menu[]>([])
+  const [categories, setCategories] = useState<MenuCategories[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/')
       .then((res) => res.json())
       .then((res) => setCategories(res))
   }, [])
 
   return (
     <>
-      <Banner />
+      <BannerCategories />
       <Hero />
       <Gallery menu={categories} />
     </>

@@ -1,11 +1,12 @@
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
-import Game from '../../models/Game'
 
 import sushi from '../../assets/images/sushi.png'
 import macarrao from '../../assets/images/macarrao.png'
+import MenuHome from '../../models/MenuHome'
+import { MenuCategories } from '../Categories'
 
-const promocoes: Game[] = [
+const cardapio: MenuHome[] = [
   {
     id: 1,
     category: '4.9',
@@ -22,7 +23,7 @@ const promocoes: Game[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis.',
     image: macarrao,
-    infos: ['5%', 'italiana'],
+    infos: ['italiana'],
     system: 'Windows',
     title: 'La Dolce Vita Trattoria'
   },
@@ -32,7 +33,7 @@ const promocoes: Game[] = [
     description:
       'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
     image: sushi,
-    infos: ['10%', 'japonesa'],
+    infos: ['japonesa'],
     system: 'Windows',
     title: 'Residente Evil 4'
   },
@@ -42,7 +43,7 @@ const promocoes: Game[] = [
     description:
       'Residente Evil 4,conhecido no Japão como Biohazard 4, é um jogo survival...',
     image: macarrao,
-    infos: ['10%', 'japonesa'],
+    infos: ['japonesa'],
     system: 'Windows',
     title: 'Residente Evil 4'
   },
@@ -52,7 +53,7 @@ const promocoes: Game[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis.',
     image: sushi,
-    infos: ['5%', 'italiana'],
+    infos: ['italiana'],
     system: 'Windows',
     title: 'La Dolce Vita Trattoria'
   },
@@ -62,17 +63,18 @@ const promocoes: Game[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis.',
     image: macarrao,
-    infos: ['5%', 'italiana'],
+    infos: ['italiana'],
     system: 'Windows',
     title: 'La Dolce Vita Trattoria'
   }
 ]
 
-const Home = () => (
-  <>
-    <Banner />
-    <ProductsList games={promocoes} title="Home" background="salmao" />
-  </>
-)
-
+const Home = () => {
+  return (
+    <>
+      <Banner />
+      <ProductsList menu={MenuCategories} background="salmao" />
+    </>
+  )
+}
 export default Home

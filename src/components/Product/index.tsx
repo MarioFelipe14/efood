@@ -9,6 +9,7 @@ import {
   ContainerTag,
   CardSemFundo
 } from './styles'
+import { Link } from 'react-router-dom'
 
 type Props = {
   title: string
@@ -34,7 +35,9 @@ const Product = ({ title, category, description, infos, image }: Props) => (
       </ContainerTag>
     </ContainerTitulo>
     <Descricao>{description}</Descricao>
-    <button>Saiba mais</button>
+    <Link to="/categories/id">
+      <button>Saiba mais</button>
+    </Link>
   </Card>
 )
 

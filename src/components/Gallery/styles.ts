@@ -23,6 +23,7 @@ export const Item = styled.li`
 
   h3 {
     color: ${cores.salmaoClaro};
+    margin-top: 8px;
     font-weight: 900;
     font-size: 16px;
     line-height: 100%;
@@ -33,9 +34,9 @@ export const Item = styled.li`
     color: ${cores.salmaoClaro};
     padding-top: 8px;
     padding-bottom: 8px;
-    font-family: Roboto;
     font-weight: 400;
     font-size: 14px;
+    height: 88px;
     line-height: 22px;
     letter-spacing: 0%;
   }
@@ -53,6 +54,7 @@ export const Item = styled.li`
     letter-spacing: 0%;
     text-align: center;
     border: none;
+    cursor: pointer;
   }
 `
 export const Action = styled.div`

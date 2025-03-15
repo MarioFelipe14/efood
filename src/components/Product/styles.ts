@@ -20,6 +20,7 @@ export const Card = styled.div`
     height: 24px;
     margin-top: 16px;
     margin: 8px;
+    cursor: pointer;
   }
 `
 export const CardSemFundo = styled(Card)`
@@ -30,6 +31,7 @@ export const CardSemFundo = styled(Card)`
   border: none;
   button {
     background-color: unset;
+    cursor: pointer;
   }
 `
 

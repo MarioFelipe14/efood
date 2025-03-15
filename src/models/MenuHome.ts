@@ -1,4 +1,4 @@
-class Game {
+class MenuHome {
   category: string
   description: string
   image: string
@@ -26,4 +26,4 @@ class Game {
   }
 }
 
-export default Game
+export default MenuHome

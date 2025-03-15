@@ -4,7 +4,7 @@ import { cores } from '../../styles'
 import { Card } from '../Product/styles'
 
 export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
-  padding: 32px 0;
+  padding: 80px 0 120px;
   background-color: ${(props) =>
     props.background === 'salmao' ? cores.salmao : cores.branco};
 
@@ -19,7 +19,6 @@ export const List = styled.ul`
   grid-template-columns: 1fr 1fr;
   column-gap: 80px;
   row-gap: 48px;
-  margin-top: 40px;
 `
 export const Title = styled.h2`
   font-size: 18px;
