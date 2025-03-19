@@ -74,7 +74,7 @@ const Home = () => {
   const [home, setHome] = useState<MenuCategories[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/')
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((res) => setHome(res))
   }, [])

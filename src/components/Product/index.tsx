@@ -9,7 +9,7 @@ import {
   ContainerTag,
   CardSemFundo
 } from './styles'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 type Props = {
   title: string
@@ -19,26 +19,30 @@ type Props = {
   image: string
 }
 
-const Product = ({ title, category, description, infos, image }: Props) => (
-  <Card>
-    <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
-    </Infos>
-    <img src={image} alt={title} />
-    <ContainerTitulo>
-      <Titulo>{title}</Titulo>
-      <ContainerTag>
-        <CardSemFundo>{category}</CardSemFundo>
-        <img src={estrela} />
-      </ContainerTag>
-    </ContainerTitulo>
-    <Descricao>{description}</Descricao>
-    <Link to="/categories/id">
-      <button>Saiba mais</button>
-    </Link>
-  </Card>
-)
+const Product = ({ title, category, description, infos, image }: Props) => {
+  const { id } = useParams<{ id: string }>()
+
+  return (
+    <Card>
+      <Infos>
+        {infos.map((info) => (
+          <Tag key={info}>{info}</Tag>
+        ))}
+      </Infos>
+      <img src={image} alt={title} />
+      <ContainerTitulo>
+        <Titulo>{title}</Titulo>
+        <ContainerTag>
+          <CardSemFundo>{category}</CardSemFundo>
+          <img src={estrela} />
+        </ContainerTag>
+      </ContainerTitulo>
+      <Descricao>{description}</Descricao>
+      <Link to={`/categories/${id}`}>
+        <button>Saiba mais</button>
+      </Link>
+    </Card>
+  )
+}
 
 export default Product

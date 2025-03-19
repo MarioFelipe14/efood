@@ -22,6 +22,12 @@ export const Card = styled.div`
     margin: 8px;
     cursor: pointer;
   }
+
+  > img {
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+  }
 `
 export const CardSemFundo = styled(Card)`
   font-weight: bold;

@@ -28,10 +28,18 @@ const Categories = () => {
   const [categories, setCategories] = useState<MenuCategories[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/')
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
-      .then((res) => setCategories(res))
-  }, [])
+      .then((res) =>
+        setCategories(
+          res.find(
+            (restaurante: MenuCategories) => restaurante.id === Number(id)
+          )
+        )
+      )
+  }, [id])
+
+  if (!categories) return <></>
 
   return (
     <>
