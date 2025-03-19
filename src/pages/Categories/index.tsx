@@ -4,6 +4,7 @@ import Hero from '../../components/Hero'
 import Gallery from '../../components/Gallery'
 import { useEffect, useState } from 'react'
 import BannerCategories from '../../components/Banner categories'
+import ProductsList from '../../components/ProductsList'
 
 export type MenuCategories = {
   id: number
@@ -28,15 +29,15 @@ const Categories = () => {
   const [categories, setCategories] = useState<MenuCategories[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
-      .then((res) =>
+      .then((res) => {
         setCategories(
           res.find(
             (restaurante: MenuCategories) => restaurante.id === Number(id)
           )
         )
-      )
+      })
   }, [id])
 
   if (!categories) return <></>

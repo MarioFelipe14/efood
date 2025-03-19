@@ -15,6 +15,7 @@ const ProductsList = ({ background, menu }: Props) => (
         {menu.map((menu) => (
           <Product
             key={menu.id}
+            id={menu.id}
             description={menu.descricao}
             image={menu.capa}
             infos={[menu.avaliacao]}

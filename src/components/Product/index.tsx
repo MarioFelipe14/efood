@@ -12,6 +12,7 @@ import {
 import { Link, useParams } from 'react-router-dom'
 
 type Props = {
+  id: number
   title: string
   category: string
   description: string
@@ -19,9 +20,7 @@ type Props = {
   image: string
 }
 
-const Product = ({ title, category, description, infos, image }: Props) => {
-  const { id } = useParams<{ id: string }>()
-
+const Product = ({ title, category, description, infos, image, id }: Props) => {
   return (
     <Card>
       <Infos>
