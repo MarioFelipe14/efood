@@ -4,7 +4,6 @@ import Hero from '../../components/Hero'
 import Gallery from '../../components/Gallery'
 import { useEffect, useState } from 'react'
 import BannerCategories from '../../components/Banner categories'
-import ProductsList from '../../components/ProductsList'
 
 export type MenuCategories = {
   id: number
@@ -21,12 +20,12 @@ export type MenuCategories = {
     nome: string
     descricao: string
     porcao: string
-  }
+  }[]
 }
 
 const Categories = () => {
   const { id } = useParams()
-  const [categories, setCategories] = useState<MenuCategories[]>([])
+  const [categories, setCategories] = useState<MenuCategories>()
 
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)

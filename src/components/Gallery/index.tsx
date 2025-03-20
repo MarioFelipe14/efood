@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { MenuCategories } from '../../pages/Categories'
 
 type Props = {
-  menu: MenuCategories[]
+  menu: MenuCategories
 }
 
 const Gallery = ({ menu }: Props) => {
@@ -15,14 +15,14 @@ const Gallery = ({ menu }: Props) => {
     <>
       <div className="container">
         <Items>
-          {menu.map((menu, index) => (
+          {menu.cardapio.map((menu, index) => (
             <CardEscuro key={menu.id}>
               <Item>
                 <img
-                  src={menu.capa}
+                  src={menu.foto}
                   alt={`Mídia ${index + 1} de nome do alimento`}
                 />
-                <h3>{menu.titulo}</h3>
+                <h3>{menu.nome}</h3>
                 <p>
                   {menu.descricao.length > 100
                     ? menu.descricao.slice(0, 100) + '...'
@@ -31,7 +31,7 @@ const Gallery = ({ menu }: Props) => {
                 <button
                   onClick={() => {
                     setModalEstaAberta(true)
-                    setModalUrl(menu.cardapio.foto)
+                    setModalUrl(menu.foto)
                   }}
                 >
                   Adicionar ao carrinho
