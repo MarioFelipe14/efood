@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
+import fechar from '../../assets/images/fechar.png'
 
 export const Items = styled.ul`
   display: grid;
@@ -94,6 +95,52 @@ export const Modal = styled.div`
   }
 `
 export const ModalContent = styled.div`
+  display: flex;
+  width: 100%;
+  height: 344px;
   position: relative;
+  background-color: ${cores.salmaoEscuro};
   z-index: 1;
+
+  img {
+    height: 280px;
+    width: 280px;
+    margin: 32px 24px 32px 32px;
+    object-fit: cover;
+  }
+  .containerConteudo {
+    position: relative;
+
+    h3 {
+      margin-top: 32px;
+    }
+
+    p {
+      margin: 16px 32px 16px 0;
+    }
+
+    button {
+      background-color: ${cores.salmaoClaro};
+      color: ${cores.salmaoEscuro};
+      width: 218px;
+      height: 24px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    button[type='button'] {
+      background-image: url(${fechar});
+      width: 16px;
+      height: 16px;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      cursor: pointer;
+    }
+  }
 `
