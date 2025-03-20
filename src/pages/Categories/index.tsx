@@ -30,13 +30,7 @@ const Categories = () => {
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
-      .then((res) => {
-        setCategories(
-          res.find(
-            (restaurante: MenuCategories) => restaurante.id === Number(id)
-          )
-        )
-      })
+      .then((res) => setCategories(res))
   }, [id])
 
   if (!categories) return <></>
@@ -44,7 +38,7 @@ const Categories = () => {
   return (
     <>
       <BannerCategories />
-      <Hero />
+      <Hero menu={categories} />
       <Gallery menu={categories} />
     </>
   )
