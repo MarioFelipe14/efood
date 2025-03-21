@@ -10,6 +10,8 @@ export const Card = styled.div`
 
   ${TagContainer} {
     margin-right: 8px;
+    font-weight: bold;
+    font-size: 12px;
   }
 
   button {

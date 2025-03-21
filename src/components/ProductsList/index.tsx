@@ -18,9 +18,9 @@ const ProductsList = ({ background, menu }: Props) => (
             id={menu.id}
             description={menu.descricao}
             image={menu.capa}
-            infos={[menu.avaliacao]}
+            infos={[menu.tipo]}
             title={menu.titulo}
-            category={menu.tipo}
+            category={menu.avaliacao}
           />
         ))}
       </List>
