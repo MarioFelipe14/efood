@@ -7,9 +7,25 @@ type Props = {
   menu: MenuCategories
 }
 
+type Prato = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 const Gallery = ({ menu }: Props) => {
   const [modalEstaAberta, setModalEstaAberta] = useState(false)
-  const [modalUrl, setModalUrl] = useState('')
+  const [prato, setPrato] = useState<Prato>()
+
+  const formataPreco = (preco: number) => {
+    return preco.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    })
+  }
 
   return (
     <>
@@ -31,7 +47,7 @@ const Gallery = ({ menu }: Props) => {
                 <button
                   onClick={() => {
                     setModalEstaAberta(true)
-                    setModalUrl(menu.foto)
+                    setPrato(menu)
                   }}
                 >
                   Adicionar ao carrinho
@@ -44,25 +60,20 @@ const Gallery = ({ menu }: Props) => {
       <Modal className={modalEstaAberta ? 'visivel' : ''}>
         <ModalContent className="container">
           <img
-            src={modalUrl}
+            src={prato?.foto}
             alt="conteúdo"
             onClick={() => setModalEstaAberta(false)}
           />
           <div className="containerConteudo">
-            <h3>Nome do prato</h3>
+            <h3>{prato?.nome}</h3>
             <p>
-              A pizza Margherita é uma pizza clássica da culinária italiana,
-              reconhecida por sua simplicidade e sabor inigualável. Ela é feita
-              com uma base de massa fina e crocante, coberta com molho de tomate
-              fresco, queijo mussarela de alta qualidade, manjericão fresco e
-              azeite de oliva extra-virgem. A combinação de sabores é perfeita,
-              com o molho de tomate suculento e ligeiramente ácido, o queijo
-              derretido e cremoso e as folhas de manjericão frescas, que
-              adicionam um toque de sabor herbáceo. É uma pizza simples, mas
-              deliciosa, que agrada a todos os paladares e é uma ótima opção
-              para qualquer ocasião. <span>Serve: de 2 a 3 pessoas</span>
+              {prato?.descricao}
+              <span>{`Serve: ` + prato?.porcao}</span>
             </p>
-            <button> Adicionar ao carrinho - R$ 60,90</button>
+            <button>
+              {' '}
+              Adicionar ao carrinho - {formataPreco(prato?.preco || 0)}
+            </button>
             <button
               type="button"
               onClick={() => setModalEstaAberta(false)}

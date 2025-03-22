@@ -116,12 +116,20 @@ export const ModalContent = styled.div`
     }
 
     p {
+      width: 656px;
+      height: 176px;
       margin: 16px 32px 16px 0;
+
+      span {
+        margin-top: 16px;
+        display: block;
+      }
     }
 
     button {
       background-color: ${cores.salmaoClaro};
       color: ${cores.salmaoEscuro};
+
       width: 218px;
       height: 24px;
       font-weight: 700;
