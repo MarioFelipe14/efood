@@ -6,6 +6,7 @@ import macarrao from '../../assets/images/macarrao.png'
 import MenuHome from '../../models/MenuHome'
 import { MenuCategories } from '../Categories'
 import { useEffect, useState } from 'react'
+import { useGetRestaurantQuery } from '../../services/api'
 
 const cardapio: MenuHome[] = [
   {
@@ -71,18 +72,16 @@ const cardapio: MenuHome[] = [
 ]
 
 const Home = () => {
-  const [home, setHome] = useState<MenuCategories[]>([])
+  const { data: restaurant } = useGetRestaurantQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setHome(res))
-  }, [])
-  return (
-    <>
-      <Banner />
-      <ProductsList menu={home} background="salmao" />
-    </>
-  )
+  if (restaurant) {
+    return (
+      <>
+        <Banner />
+        <ProductsList menu={restaurant} background="salmao" />
+      </>
+    )
+  }
+  return <h4>Carregando</h4>
 }
 export default Home

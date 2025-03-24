@@ -2,12 +2,15 @@ import { Item, Items, CardEscuro, Modal, ModalContent } from './styles'
 
 import { useState } from 'react'
 import { MenuCategories } from '../../pages/Categories'
+import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
   menu: MenuCategories
 }
 
-type Prato = {
+export type Prato = {
   foto: string
   preco: number
   id: number
@@ -16,15 +19,20 @@ type Prato = {
   porcao: string
 }
 
+export const formataPreco = (preco: number) => {
+  return preco.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  })
+}
 const Gallery = ({ menu }: Props) => {
   const [modalEstaAberta, setModalEstaAberta] = useState(false)
   const [prato, setPrato] = useState<Prato>()
 
-  const formataPreco = (preco: number) => {
-    return preco.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    })
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(add(prato!))
+    dispatch(open())
   }
 
   return (
@@ -70,7 +78,7 @@ const Gallery = ({ menu }: Props) => {
               {prato?.descricao}
               <span>{`Serve: ` + prato?.porcao}</span>
             </p>
-            <button>
+            <button onClick={addToCart}>
               {' '}
               Adicionar ao carrinho - {formataPreco(prato?.preco || 0)}
             </button>
@@ -80,7 +88,10 @@ const Gallery = ({ menu }: Props) => {
             ></button>
           </div>
         </ModalContent>
-        <div className="overlay"></div>
+        <div
+          className="overlay"
+          onClick={() => setModalEstaAberta(false)}
+        ></div>
       </Modal>
     </>
   )

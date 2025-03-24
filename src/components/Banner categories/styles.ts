@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -22,5 +22,9 @@ export const Imagem = styled.div`
     align-items: center;
     text-align: center;
     justify-content: space-between;
+  }
+
+  a {
+    cursor: pointer;
   }
 `

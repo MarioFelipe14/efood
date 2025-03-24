@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 export const Banner = styled.div`
   position: relative;
@@ -11,6 +12,10 @@ export const Banner = styled.div`
   background-size: 100%;
   padding-top: 25px;
   padding-bottom: 32px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    background-size: cover;
+  }
 
   &::after {
     position: absolute;

@@ -2,8 +2,8 @@ import { useParams } from 'react-router-dom'
 import Hero from '../../components/Hero'
 
 import Gallery from '../../components/Gallery'
-import { useEffect, useState } from 'react'
 import BannerCategories from '../../components/Banner categories'
+import { useGetIdQuery } from '../../services/api'
 
 export type MenuCategories = {
   id: number
@@ -25,15 +25,9 @@ export type MenuCategories = {
 
 const Categories = () => {
   const { id } = useParams()
-  const [categories, setCategories] = useState<MenuCategories>()
+  const { data: categories } = useGetIdQuery(id!)
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setCategories(res))
-  }, [id])
-
-  if (!categories) return <></>
+  if (!categories) return <>Carregando</>
 
   return (
     <>

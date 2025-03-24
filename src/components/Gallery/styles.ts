@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import fechar from '../../assets/images/fechar.png'
 
 export const Items = styled.ul`
@@ -10,7 +10,16 @@ export const Items = styled.ul`
   margin-top: 56px;
   margin-bottom: 120px;
   gap: 32px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
+
 export const Item = styled.li`
   margin-right: 16px;
   position: relative;
@@ -57,6 +66,12 @@ export const Item = styled.li`
     border: none;
     cursor: pointer;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    button {
+      width: 264px;
+    }
+  }
 `
 export const Action = styled.div`
   position: absolute;
@@ -70,7 +85,16 @@ export const CardEscuro = styled.div`
   width: 320px;
   height: 338px;
   background-color: ${cores.salmaoEscuro};
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 280px;
+
+    img {
+      width: 264px;
+    }
+  }
 `
+
 export const Modal = styled.div`
   position: fixed;
   padding-top: 336px;
@@ -149,6 +173,50 @@ export const ModalContent = styled.div`
       top: 8px;
       right: 8px;
       cursor: pointer;
+    }
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    .containerConteudo {
+      p {
+        width: 100%;
+        height: auto;
+        margin: 16px auto;
+      }
+
+      button {
+      }
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    height: auto;
+    margin-bottom: 32px;
+
+    img {
+      height: 140px;
+      width: 274px;
+      margin-bottom: 12px;
+    }
+
+    .containerConteudo {
+      width: 100%;
+      padding-top: 12px;
+
+      p {
+        width: 90%;
+      }
+
+      button,
+      h3 {
+        margin-top: 1px;
+        margin-left: 16px;
+      }
+    }
+
+    button[type='button'] {
+      display: none;
     }
   }
 `
