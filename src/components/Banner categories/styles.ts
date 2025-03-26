@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { cores } from '../../styles'
+import { Link as RouterLink } from 'react-router-dom'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -10,10 +11,12 @@ export const Imagem = styled.div`
   background-size: cover;
   font-weight: bold;
 
-  h3 {
+  a {
     color: ${cores.salmaoEscuro};
+    cursor: pointer;
     font-weight: bold;
     font-size: 18px;
+    text-decoration: none;
   }
 
   .container {
@@ -23,8 +26,11 @@ export const Imagem = styled.div`
     text-align: center;
     justify-content: space-between;
   }
-
-  a {
-    cursor: pointer;
-  }
+`
+export const Link = styled(RouterLink)`
+  color: ${cores.salmaoEscuro};
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
 `

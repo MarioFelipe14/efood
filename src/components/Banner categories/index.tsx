@@ -1,4 +1,4 @@
-import { Imagem } from './styles'
+import { Imagem, Link } from './styles'
 
 import bannerImg from '../../assets/images/Vector.png'
 import logo from '../../assets/images/logo-efood.png'
@@ -16,7 +16,7 @@ const BannerCategories = () => {
   return (
     <Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
       <div className="container">
-        <h3>Restaurantes</h3>
+        <Link to="/">Restaurantes</Link>
         <img src={logo} alt="EFOOD" className="logo" />
         <a onClick={openCart}>{items.length} produto(s) no carrinho</a>
       </div>

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { MenuCategories } from '../../pages/Categories'
 import { Prato } from '../../components/Gallery'
 
 type CartState = {
