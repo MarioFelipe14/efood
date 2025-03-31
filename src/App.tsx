@@ -8,8 +8,10 @@ import Footer from './components/Footer'
 import { store } from './store'
 import Cart from './components/Cart'
 import Checkout from './components/Checkout'
+import { useState } from 'react'
 
 function App() {
+  const [currentStep, setCurrentStep] = useState('Cart')
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -17,8 +19,8 @@ function App() {
         <div className="container"></div>
         <Rotas />
         <Footer />
-        <Cart />
-        <Checkout />
+        <Cart currentStep={currentStep} setCurrentStep={setCurrentStep} />
+        <Checkout currentStep={currentStep} setCurrentStep={setCurrentStep} />
       </BrowserRouter>
     </Provider>
   )

@@ -1,9 +1,11 @@
-import { useState } from 'react'
 import { Overlay, SideBar } from '../Cart/styles'
 import { CheckoutItem, CheckoutContainer } from './styles'
 
-const Checkout = () => {
-  const [currentStep, setCurrentStep] = useState('Checkout')
+interface StepProps {
+  currentStep: string
+  setCurrentStep: React.Dispatch<React.SetStateAction<string>>
+}
+const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
   const goBackToCart = () => setCurrentStep('Cart')
 
   return (

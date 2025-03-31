@@ -11,12 +11,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { close, remove } from '../../store/reducers/cart'
 import { formataPreco } from '../Gallery'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
 
-const Cart = () => {
+interface StepProps {
+  currentStep: string
+  setCurrentStep: React.Dispatch<React.SetStateAction<string>>
+}
+
+const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
-  const [currentStep, setCurrentStep] = useState('Cart')
   const dispatch = useDispatch()
 
   const closeCart = () => {
