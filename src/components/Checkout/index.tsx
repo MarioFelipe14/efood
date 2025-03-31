@@ -5,7 +5,6 @@ import { CheckoutItem, CheckoutContainer } from './styles'
 const Checkout = () => {
   const [currentStep, setCurrentStep] = useState('Checkout')
   const goBackToCart = () => setCurrentStep('Cart')
-  console.log('Current Step:', currentStep)
 
   return (
     <CheckoutContainer>

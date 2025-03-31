@@ -34,7 +34,7 @@ const Cart = () => {
   }
 
   const handleCheckout = () => {
-    setCurrentStep('checkout')
+    setCurrentStep('Checkout')
   }
 
   return (
