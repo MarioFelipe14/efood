@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
+type InputGroupProps = {
+  maxWidth?: string
+}
+
 export const CheckoutContainer = styled.div`
   background-color: ${cores.salmaoEscuro};
   position: fixed;
@@ -40,17 +44,6 @@ export const CheckoutItem = styled.form`
     margin-bottom: 16px;
   }
 
-  .cep-number {
-    display: flex;
-    width: 344px;
-    margin-top: 16px;
-    justify-content: space-between;
-
-    input {
-      width: 138px;
-    }
-  }
-
   label {
     color: ${cores.salmaoClaro};
     display: block;
@@ -68,4 +61,20 @@ export const CheckoutItem = styled.form`
     outline: none;
     padding: 8px;
   }
+`
+export const NumCvv = styled.div<InputGroupProps>`
+  gap: 30px;
+  display: flex;
+  justify-content: space-between;
+`
+export const InputGroup = styled.div<InputGroupProps>`
+  max-width: ${(props) => props.maxWidth || 'auto'};
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+export const MesAno = styled.div`
+  display: flex;
+  gap: 30px;
 `

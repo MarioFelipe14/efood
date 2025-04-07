@@ -40,11 +40,11 @@ const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <SideBar>
-        {currentStep === 'Cart' && (
-          <>
+    <>
+      {currentStep === 'Cart' && (
+        <CartContainer className={isOpen ? 'is-open' : ''}>
+          <Overlay onClick={closeCart} />
+          <SideBar>
             <ul>
               {items.map((item) => (
                 <CartItem key={item.id}>
@@ -64,10 +64,10 @@ const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
             <BotaoEntregar type="button" onClick={handleCheckout}>
               Continuar com a entrega
             </BotaoEntregar>
-          </>
-        )}
-      </SideBar>
-    </CartContainer>
+          </SideBar>
+        </CartContainer>
+      )}
+    </>
   )
 }
 
