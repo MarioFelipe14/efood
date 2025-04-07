@@ -1,3 +1,4 @@
+import { usePurchaseMutation } from '../../services/api'
 import { ConfirmationContainer } from './styles'
 
 interface StepProps {
@@ -5,11 +6,13 @@ interface StepProps {
   setCurrentStep: React.Dispatch<React.SetStateAction<string>>
 }
 export const Confirmation = ({ currentStep, setCurrentStep }: StepProps) => {
+  const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
+
   return (
     <>
       {currentStep === 'Confirmation' && (
         <ConfirmationContainer>
-          <h3>Pedido realizado - ORDER_ID</h3>
+          <h3>Pedido realizado - {data.orderId}</h3>
           <p>
             Estamos felizes em informar que seu pedido já está em processo de
             preparação e, em breve, será entregue no endereço fornecido.

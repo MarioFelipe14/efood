@@ -42,7 +42,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
           address: {
             city: values.cidade,
             zipCode: values.cep,
-            number: values.numero
+            number: Number(values.numero)
           }
         }
       })

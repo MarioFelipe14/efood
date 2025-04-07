@@ -60,10 +60,10 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
           card: {
             name: values.nomeNoCartao,
             number: values.numeroDoCartao,
-            code: values.cvv,
+            code: Number(values.cvv),
             expires: {
-              month: values.mesDeVencimento,
-              year: values.anoDeVencimento
+              month: Number(values.mesDeVencimento),
+              year: Number(values.anoDeVencimento)
             }
           }
         }
