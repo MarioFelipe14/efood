@@ -12,7 +12,6 @@ import {
   CartItem,
   BotaoEntregar
 } from './styles'
-import { useEffect } from 'react'
 
 interface StepProps {
   currentStep: string
@@ -20,7 +19,6 @@ interface StepProps {
 }
 
 const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
-  const navigate = useNavigate()
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
@@ -45,12 +43,6 @@ const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
     }
     setCurrentStep('Checkout')
   }
-
-  useEffect(() => {
-    if (currentStep === 'Checkout' && items.length === 0) {
-      navigate('/')
-    }
-  }, [])
 
   return (
     <>
