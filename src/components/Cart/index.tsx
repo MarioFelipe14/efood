@@ -1,3 +1,9 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+import { close, remove } from '../../store/reducers/cart'
+import { formataPreco } from '../Gallery'
+import { Navigate, useNavigate } from 'react-router-dom'
+
 import {
   Overlay,
   CartContainer,
@@ -6,11 +12,7 @@ import {
   CartItem,
   BotaoEntregar
 } from './styles'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
-import { formataPreco } from '../Gallery'
+import { useEffect } from 'react'
 
 interface StepProps {
   currentStep: string
@@ -18,6 +20,7 @@ interface StepProps {
 }
 
 const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
+  const navigate = useNavigate()
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
@@ -36,8 +39,18 @@ const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
   }
 
   const handleCheckout = () => {
+    if (items.length === 0) {
+      alert('Seu carrinho está vazio!')
+      return
+    }
     setCurrentStep('Checkout')
   }
+
+  useEffect(() => {
+    if (currentStep === 'Checkout' && items.length === 0) {
+      navigate('/')
+    }
+  }, [])
 
   return (
     <>

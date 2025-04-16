@@ -12,6 +12,7 @@ import { formataPreco } from '../Gallery'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { usePurchaseMutation } from '../../services/api'
+import { Navigate } from 'react-router-dom'
 
 interface StepProps {
   currentStep: string
@@ -71,12 +72,12 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
     }
   })
 
-  const getErrorMessage = (fieldName: string, message?: string) => {
+  const checkInputHasError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
+    const hasError = isTouched && isInvalid
 
-    if (isTouched && isInvalid) return message
-    return ''
+    return hasError
   }
 
   const handleCheckout = () => {
@@ -100,10 +101,8 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                 name="nomeNoCartao"
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkInputHasError('nomeNoCartao') ? 'error' : ''}
               />
-              <small>
-                {getErrorMessage('nomeNoCartao', form.errors.nomeNoCartao)}
-              </small>
               <NumCvv>
                 <InputGroup>
                   <label htmlFor="numeroDoCartao">Número do cartão</label>
@@ -113,13 +112,10 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                     name="numeroDoCartao"
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={
+                      checkInputHasError('numeroDoCartao') ? 'error' : ''
+                    }
                   />
-                  <small>
-                    {getErrorMessage(
-                      'numeroDoCartao',
-                      form.errors.numeroDoCartao
-                    )}
-                  </small>
                 </InputGroup>
                 <InputGroup maxWidth="87px">
                   <label htmlFor="cvv">CVV</label>
@@ -129,8 +125,8 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                     name="cvv"
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={checkInputHasError('cvv') ? 'error' : ''}
                   />
-                  <small>{getErrorMessage('cvv', form.errors.cvv)}</small>
                 </InputGroup>
               </NumCvv>
               <MesAno>
@@ -142,13 +138,10 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                     name="mesDeVencimento"
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={
+                      checkInputHasError('mesDeVencimento') ? 'error' : ''
+                    }
                   />
-                  <small>
-                    {getErrorMessage(
-                      'mesDeVencimento',
-                      form.errors.mesDeVencimento
-                    )}
-                  </small>
                 </InputGroup>
                 <InputGroup>
                   <label htmlFor="anoDeVencimento">Ano de vencimento</label>
@@ -158,13 +151,10 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                     name="anoDeVencimento"
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={
+                      checkInputHasError('anoDeVencimento') ? 'error' : ''
+                    }
                   />
-                  <small>
-                    {getErrorMessage(
-                      'anoDeVencimento',
-                      form.errors.anoDeVencimento
-                    )}
-                  </small>
                 </InputGroup>
               </MesAno>
             </CheckoutItem>

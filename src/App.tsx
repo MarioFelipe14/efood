@@ -21,13 +21,21 @@ function App() {
         <div className="container"></div>
         <Rotas />
         <Footer />
-        <Cart currentStep={currentStep} setCurrentStep={setCurrentStep} />
-        <Checkout currentStep={currentStep} setCurrentStep={setCurrentStep} />
-        <Payment currentStep={currentStep} setCurrentStep={setCurrentStep} />
-        <Confirmation
-          currentStep={currentStep}
-          setCurrentStep={setCurrentStep}
-        />
+        {currentStep === 'Cart' && (
+          <Cart currentStep={currentStep} setCurrentStep={setCurrentStep} />
+        )}
+        {currentStep === 'Checkout' && (
+          <Checkout currentStep={currentStep} setCurrentStep={setCurrentStep} />
+        )}{' '}
+        {currentStep === 'Payment' && (
+          <Payment currentStep={currentStep} setCurrentStep={setCurrentStep} />
+        )}{' '}
+        {currentStep === 'Confirmation' && (
+          <Confirmation
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+          />
+        )}
       </BrowserRouter>
     </Provider>
   )

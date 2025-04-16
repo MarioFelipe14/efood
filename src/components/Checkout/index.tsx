@@ -1,8 +1,10 @@
 import { useFormik } from 'formik'
-import { Overlay, SideBar } from '../Cart/styles'
-import { CheckoutItem, CheckoutContainer } from './styles'
+import { RootReducer } from '../../store'
+import { useSelector } from 'react-redux'
 import * as Yup from 'yup'
 import { usePurchaseMutation } from '../../services/api'
+import { CheckoutItem, CheckoutContainer } from './styles'
+import { Overlay, SideBar } from '../Cart/styles'
 
 interface StepProps {
   currentStep: string
@@ -11,6 +13,7 @@ interface StepProps {
 const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
   const goBackToCart = () => setCurrentStep('Cart')
   const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const form = useFormik({
     initialValues: {
@@ -20,7 +23,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
       cep: '',
       numero: ''
     },
-    validationSchema: {
+    validationSchema: Yup.object({
       cliente: Yup.string()
         .min(5, 'O nome precisa ter pelo menos 5 caracteres')
         .required('O campo é obrigatório'),
@@ -34,7 +37,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
         .min(10, 'O número precisa ter 10 caracteres')
         .max(10, 'O número precisa ter 10 caracteres')
         .required('O campo é obrigatório')
-    },
+    }),
     onSubmit: (values) => {
       purchase({
         delivery: {
@@ -48,6 +51,14 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
       })
     }
   })
+
+  const checkInputHasError = (fieldName: string) => {
+    const isTouched = fieldName in form.touched
+    const isInvalid = fieldName in form.errors
+    const hasError = isTouched && isInvalid
+
+    return hasError
+  }
 
   const handleCheckout = () => {
     setCurrentStep('Payment')
@@ -69,6 +80,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                 value={form.values.cliente}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkInputHasError('cliente') ? 'error' : ''}
               />
               <label htmlFor="endereco">Endereço</label>
               <input
@@ -78,6 +90,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                 value={form.values.endereco}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkInputHasError('endereco') ? 'error' : ''}
               />
               <label htmlFor="cidade">Cidade</label>
               <input
@@ -87,6 +100,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                 value={form.values.cidade}
                 onChange={form.handleChange}
                 onBlur={form.handleBlur}
+                className={checkInputHasError('cidade') ? 'error' : ''}
               />
               <div className="cep-number">
                 <div>
@@ -98,6 +112,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                     value={form.values.cep}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={checkInputHasError('cep') ? 'error' : ''}
                   />
                 </div>
                 <div>
@@ -109,6 +124,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                     value={form.values.numero}
                     onChange={form.handleChange}
                     onBlur={form.handleBlur}
+                    className={checkInputHasError('numero') ? 'error' : ''}
                   />
                 </div>
               </div>

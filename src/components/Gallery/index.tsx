@@ -2,7 +2,7 @@ import { Item, Items, CardEscuro, Modal, ModalContent } from './styles'
 
 import { useState } from 'react'
 import { MenuCategories } from '../../pages/Categories'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { add, open } from '../../store/reducers/cart'
 

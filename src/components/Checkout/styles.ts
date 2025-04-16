@@ -67,5 +67,9 @@ export const CheckoutItem = styled.form`
     border: none;
     outline: none;
     padding: 8px;
+
+    &.error {
+      border: 2px solid red;
+    }
   }
 `
