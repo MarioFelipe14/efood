@@ -12,7 +12,6 @@ import { formataPreco } from '../Gallery'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { usePurchaseMutation } from '../../services/api'
-import { Navigate } from 'react-router-dom'
 
 interface StepProps {
   currentStep: string
@@ -22,7 +21,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const goBackToCheckout = () => setCurrentStep('Checkout')
 
-  const [purchase, { isError, isLoading, data }] = usePurchaseMutation()
+  const [purchase] = usePurchaseMutation()
 
   const getTotalPreco = () => {
     return items.reduce((acumulador, valorAtual) => {
@@ -45,13 +44,14 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
       numeroDoCartao: Yup.string().required('O campo é obrigatório'),
       cvv: Yup.string()
         .min(3, 'O cvv precisa ter 3 caracteres')
+        .max(3, 'O cvv precisa ter 3 caracteres')
         .required('O campo é obrigatório'),
       mesDeVencimento: Yup.string()
         .min(2, 'O mês precisa ter 2 caracteres')
         .max(2, 'O mês precisa ter 2 caracteres')
         .required('O campo é obrigatório'),
       anoDeVencimento: Yup.string()
-        .min(2, 'O ano precisa ter 2 caracteres')
+        .min(4, 'O ano precisa ter 4 caracteres')
         .max(4, 'O ano precisa ter 4 caracteres')
         .required('O campo é obrigatório')
     }),
