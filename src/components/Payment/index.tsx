@@ -21,7 +21,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const goBackToCheckout = () => setCurrentStep('Checkout')
 
-  const [purchase] = usePurchaseMutation()
+  const [purchase, { isSuccess }] = usePurchaseMutation()
 
   const getTotalPreco = () => {
     return items.reduce((acumulador, valorAtual) => {
@@ -86,7 +86,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
 
   return (
     <>
-      {currentStep === 'Payment' && (
+      {isSuccess && currentStep === 'Payment' && (
         <CheckoutContainer>
           <Overlay />
           <SideBar>

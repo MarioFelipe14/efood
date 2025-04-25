@@ -34,8 +34,8 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
         .max(9, 'O cep precisa ter 9 caracteres')
         .required('O campo é obrigatório'),
       numero: Yup.string()
-        .min(10, 'O número precisa ter 10 caracteres')
-        .max(10, 'O número precisa ter 10 caracteres')
+        .min(2, 'O número precisa ter 2 caracteres')
+        .max(2, 'O número precisa ter 2 caracteres')
         .required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
