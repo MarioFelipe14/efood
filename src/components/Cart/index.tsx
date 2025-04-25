@@ -37,8 +37,7 @@ const Cart = ({ currentStep, setCurrentStep }: StepProps) => {
 
   const handleCheckout = () => {
     if (items.length === 0) {
-      alert('Seu carrinho está vazio!')
-      return
+      return closeCart()
     }
     setCurrentStep('Checkout')
   }
