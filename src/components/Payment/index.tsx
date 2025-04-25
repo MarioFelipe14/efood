@@ -86,7 +86,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
 
   return (
     <>
-      {isSuccess && currentStep === 'Payment' && (
+      {currentStep === 'Payment' && (
         <CheckoutContainer>
           <Overlay />
           <SideBar>
