@@ -49,6 +49,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
           }
         }
       })
+      setCurrentStep('Payment')
     }
   })
 
@@ -107,7 +108,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                   <label htmlFor="cep">CEP</label>
                   <input
                     id="cep"
-                    type="number"
+                    type="text"
                     name="cep"
                     value={form.values.cep}
                     onChange={form.handleChange}
@@ -119,7 +120,7 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                   <label htmlFor="numero">Número</label>
                   <input
                     id="numero"
-                    type="number"
+                    type="text"
                     name="numero"
                     value={form.values.numero}
                     onChange={form.handleChange}
@@ -130,10 +131,8 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
               </div>
               <label htmlFor="complemento">Complemento</label>
               <input id="complemento" type="text" />
+              <button type="submit">Continuar com o pagamento</button>
             </CheckoutItem>
-            <button type="button" onClick={handleCheckout}>
-              Continuar com o pagamento
-            </button>
             <button type="button" onClick={goBackToCart}>
               Voltar para o carrinho
             </button>

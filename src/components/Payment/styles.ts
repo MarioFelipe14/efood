@@ -65,6 +65,10 @@ export const CheckoutItem = styled.form`
       border: 2px solid red;
     }
   }
+
+  button {
+    margin: 16px 0 0;
+  }
 `
 export const NumCvv = styled.div<InputGroupProps>`
   gap: 30px;

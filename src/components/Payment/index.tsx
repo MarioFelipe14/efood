@@ -12,6 +12,7 @@ import { formataPreco } from '../Gallery'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { usePurchaseMutation } from '../../services/api'
+import { useEffect } from 'react'
 
 interface StepProps {
   currentStep: string
@@ -21,7 +22,13 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const goBackToCheckout = () => setCurrentStep('Checkout')
 
-  const [purchase, { isSuccess }] = usePurchaseMutation()
+  const [purchase, { isSuccess, isLoading }] = usePurchaseMutation()
+
+  useEffect(() => {
+    if (isSuccess) {
+      setCurrentStep('Confirmation')
+    }
+  }, [isSuccess, setCurrentStep])
 
   const getTotalPreco = () => {
     return items.reduce((acumulador, valorAtual) => {
@@ -157,10 +164,10 @@ const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
                   />
                 </InputGroup>
               </MesAno>
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? 'Processando...' : 'Finalizar pagamento'}
+              </button>
             </CheckoutItem>
-            <button type="button" onClick={handleCheckout}>
-              Finalizar pagamento
-            </button>
             <button type="button" onClick={goBackToCheckout}>
               Voltar para a edição de endereço
             </button>

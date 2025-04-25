@@ -72,4 +72,8 @@ export const CheckoutItem = styled.form`
       border: 2px solid red;
     }
   }
+
+  button {
+    margin: 16px 0 0;
+  }
 `
