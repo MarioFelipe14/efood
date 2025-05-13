@@ -1,6 +1,6 @@
 import Product from '../Product'
 import { Container, List } from './style'
-import MenuHome from '../../models/MenuHome'
+
 import { MenuCategories } from '../../pages/Categories'
 
 export type Props = {

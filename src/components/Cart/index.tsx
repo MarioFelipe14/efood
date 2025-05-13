@@ -13,8 +13,10 @@ import {
 } from './styles'
 
 interface StepProps {
-  currentStep: string
-  setCurrentStep: React.Dispatch<React.SetStateAction<string>>
+  currentStep: 'Cart' | 'Checkout' | 'Payment' | 'Confirmation'
+  setCurrentStep: React.Dispatch<
+    React.SetStateAction<'Cart' | 'Checkout' | 'Payment' | 'Confirmation'>
+  >
 }
 
 const Cart = ({ currentStep, setCurrentStep }: StepProps) => {

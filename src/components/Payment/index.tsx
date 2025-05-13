@@ -15,9 +15,12 @@ import { usePurchaseMutation } from '../../services/api'
 import { useEffect } from 'react'
 
 interface StepProps {
-  currentStep: string
-  setCurrentStep: React.Dispatch<React.SetStateAction<string>>
+  currentStep: 'Cart' | 'Checkout' | 'Payment' | 'Confirmation'
+  setCurrentStep: React.Dispatch<
+    React.SetStateAction<'Cart' | 'Checkout' | 'Payment' | 'Confirmation'>
+  >
 }
+
 const Checkout = ({ currentStep, setCurrentStep }: StepProps) => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const goBackToCheckout = () => setCurrentStep('Checkout')

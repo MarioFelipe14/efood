@@ -40,15 +40,23 @@ export const CheckoutItem = styled.form`
     margin-bottom: 16px;
   }
 
-  .cep-number {
+  .form-row {
     display: flex;
-    width: 344px;
-    margin-top: 16px;
-    justify-content: space-between;
+    gap: 16px; /* Espaço entre os inputs */
+  }
 
-    input {
-      width: 138px;
-    }
+  .form-group {
+    flex: 1; /* Faz os inputs ocuparem a mesma largura */
+    display: flex;
+    flex-direction: column; /* Label acima do input */
+  }
+
+  .form-group label {
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  input {
+    width: 138px;
   }
 
   label {
@@ -74,6 +82,27 @@ export const CheckoutItem = styled.form`
   }
 
   button {
-    margin: 16px 0 0;
+    margin: 16px 8px 0;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 34px;
+    margin-bottom: 16px; /* Espaço entre linhas */
+  }
+
+  .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group.small {
+    flex: 0.5; /* Deixa os campos menores, você pode ajustar */
+  }
+
+  .form-group label {
+    margin-bottom: 4px;
+    font-weight: 500;
   }
 `

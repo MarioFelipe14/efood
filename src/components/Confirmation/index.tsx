@@ -1,12 +1,17 @@
+import { useState } from 'react'
 import { usePurchaseMutation } from '../../services/api'
 import { ConfirmationContainer } from './styles'
 
 interface StepProps {
-  currentStep: string
-  setCurrentStep: React.Dispatch<React.SetStateAction<string>>
+  currentStep: 'Cart' | 'Checkout' | 'Payment' | 'Confirmation'
+  setCurrentStep: React.Dispatch<
+    React.SetStateAction<'Cart' | 'Checkout' | 'Payment' | 'Confirmation'>
+  >
 }
+
 export const Confirmation = ({ currentStep, setCurrentStep }: StepProps) => {
   const [purchase, { data, isSuccess }] = usePurchaseMutation()
+  const [orderId, setOrderId] = useState<string>('')
 
   return (
     <>
@@ -14,7 +19,7 @@ export const Confirmation = ({ currentStep, setCurrentStep }: StepProps) => {
         <ConfirmationContainer>
           {isSuccess ? (
             <>
-              <h3>Pedido realizado - {data.orderId}</h3>
+              <h3>Pedido realizado - {orderId}</h3>
               <p>
                 Estamos felizes em informar que seu pedido já está em processo
                 de preparação e, em breve, será entregue no endereço fornecido.

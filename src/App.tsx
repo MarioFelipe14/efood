@@ -12,8 +12,12 @@ import { useState } from 'react'
 import Payment from './components/Payment'
 import { Confirmation } from './components/Confirmation'
 
+type NavigationStep = 'Cart' | 'Checkout' | 'Payment' | 'Confirmation'
+
 function App() {
-  const [currentStep, setCurrentStep] = useState('Cart')
+  // Estado para o fluxo de navegação principal
+  const [currentStep, setCurrentStep] = useState<NavigationStep>('Cart')
+
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -26,10 +30,10 @@ function App() {
         )}
         {currentStep === 'Checkout' && (
           <Checkout currentStep={currentStep} setCurrentStep={setCurrentStep} />
-        )}{' '}
+        )}
         {currentStep === 'Payment' && (
           <Payment currentStep={currentStep} setCurrentStep={setCurrentStep} />
-        )}{' '}
+        )}
         {currentStep === 'Confirmation' && (
           <Confirmation
             currentStep={currentStep}
